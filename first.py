@@ -1,8 +1,10 @@
 print("1");
 
+# py-menv <name> //for creating a virtual environment
+# \.venv\Scripts\activate.bat          //for activating the virtual environment
+# pip install django                   //for installing django 
+# django-admin --version              //for checking the version of django
+# django-admin startproject day7_29        //for creating a project
+# python manage.py startapp first   or  django-admin startapp first(fresh application)  --  //for creating an app
+# python manage.py runserver             //for running the server
 
-# \.venv\Scripts\activate.bat
-# pip install django
-# django-admin --version
-# django-admin startproject day7_29
-# python manage.py runserver
