@@ -8,3 +8,5 @@ print("1");
 # python manage.py startapp first   or  django-admin startapp first(fresh application)  --  //for creating an app
 # python manage.py runserver             //for running the server
 
+work flow:
+manage.py->settings.py->urls.py(project)->urls.py(app)->views.py->http.response

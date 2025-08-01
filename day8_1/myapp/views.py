@@ -22,3 +22,10 @@ def mydict(request):
     for key, value in items.items():
         context+= f"<li>{key} : {value}</li>"
     return HttpResponse(context)
+
+def mylist(request):
+    items = ["a", "b","c","d"]
+    context = "Menu Items:<br>"
+    for item in items:
+        context+= f"<li>{item}</li>"
+    return HttpResponse(context)
