@@ -4,5 +4,8 @@ urlpatterns = [
     path('showname/<str:name>',views.showname),
 
     path('sum/<int:a>/<int:b>',views.sum),
+    path('getval/', views.getval),
+    path('getsum/', views.getsum),
+    path('sumtry/', views.sumtry),
 ]
 
