@@ -1,6 +1,7 @@
 from django.urls import path
 from . import views
 urlpatterns = [
-    path('json/',views.json)
+    path('json/',views.json),
+    path('apidata/',views.apidata)
 ]
 

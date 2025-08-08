@@ -11,3 +11,5 @@ print("1");
 
 # work flow:
 # manage.py->settings.py->urls.py(project)->urls.py(app)->views.py->http.response
+
+# pip install requests  //for installing requests library
