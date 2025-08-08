@@ -15,3 +15,6 @@ def apidata(request):
     data = response.json()
     return JsonResponse(data, safe=False)
     # return HttpResponse(response)
+
+def regex(request,username):
+    return HttpResponse(f"Hello {username}")
