@@ -13,3 +13,7 @@ print("1");
 # manage.py->settings.py->urls.py(project)->urls.py(app)->views.py->http.response
 
 # pip install requests  //for installing requests library
+
+
+# mvt-> model-database,  view-logic,  template-view/ui
+# input-> 1-querySelector,  2-variablename
