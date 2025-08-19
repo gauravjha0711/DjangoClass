@@ -20,4 +20,4 @@ import requests
 #     return HttpResponse(f"Hello {username}")
 
 def indexpage(request):
-    return render(request,'myapp/index.html')
+    return render(request,'myapp/child.html')
