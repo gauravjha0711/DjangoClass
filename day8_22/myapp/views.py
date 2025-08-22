@@ -4,7 +4,8 @@ import requests
 # Create your views here.
 
 def indexpage(request):
-    return render(request,'myapp/child.html')
+    contex = {"username":"Gaurav","age":25,"location":"Patna, Bihar"}
+    return render(request,'myapp/child.html',contex)
 def new(request):
     return render(request,'myapp/new.html')
 def abc(request):
