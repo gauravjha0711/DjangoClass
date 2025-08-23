@@ -7,7 +7,7 @@ def indexpage(request):
     contex = {
         "username": "Gaurav",
         "age": 25,
-        "location": "Patna, Bihar",
+        "location": "patna, Bihar",
         'mylist': [1,2,3,4,5,6],
     }
     return render(request,'myapp/child.html',contex)

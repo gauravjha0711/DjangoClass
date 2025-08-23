@@ -1,12 +1,18 @@
 {%extends './index.html'%}
 {%block content%}
     <h2>This is the child template</h2>
-    <h2>Username is {{ username }}</h2>
-    <h2>I am from {{ location }}</h2>
+    <h2>Username is {{username}}, {{ username | length }}</h2>
+    <h2>I am from {{ location | capfirst }}</h2>
     <h2>My age is {{ age }}</h2>
+    {% if otp %}
+        {{ otp }}
+    {% else %}
+        <h2>OTP is not available</h2>
+    {% endif %}
     <h3>{{mylist.0}}</h3>
     <h2>My list is: </h2>
     {% for item in mylist %}
         <li>Item: {{ item }}</li>
     {% endfor %}
+
 {%endblock%}
