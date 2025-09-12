@@ -1,0 +1,23 @@
+
+{% extends 'shop/base.html' %}
+{% block title %}{{ product.name }} — My Shop{% endblock %}
+{% load static %}
+
+{% block content %}
+  <div class="product-detail">
+    <h2>{{ product.name }}</h2>
+    {% if product.image %}
+      <img src="{{ product.image.url }}" alt="{{ product.name }}">
+    {% else %}
+      <img src="{% static 'shop/images/placeholder.png' %}" alt="No image">
+    {% endif %}
+    <p class="price">Price: ₹{{ product.price }}</p>
+    <p>{{ product.description|linebreaksbr }}</p>
+
+    <form action="{% url 'shop:add_to_cart' product.pk %}" method="post">
+      {% csrf_token %}
+      <button type="submit">Add to Cart</button>
+    </form>
+    <p><a href="{% url 'shop:product_list' %}">Back to products</a></p>
+  </div>
+{% endblock %}
