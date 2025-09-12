@@ -1,0 +1,25 @@
+{% extends "gallery/base.html" %}
+{% load static %}
+{% block content %}
+  <p>
+    Showing {{ images|length }} out of {{ total_images }}.
+  </p>
+
+  {% if message == 'zero' %}
+    <p>zero</p>
+  {% endif %}
+
+  {% if images %}
+    <div>
+      {% for image in images %}
+        <div class="photo">
+          <img src="{% static 'gallery/' %}{{ image }}">
+        </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    {% if message != 'zero' %}
+      <p>No images to display.</p>
+    {% endif %}
+  {% endif %}
+{% endblock %}
