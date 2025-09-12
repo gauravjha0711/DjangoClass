@@ -1,0 +1,45 @@
+<!-- blog/templates/blog/post_form.html -->
+{% extends "base.html" %}
+{% load static %}
+{% block title %}New Post — My Blog{% endblock %}
+
+{% block content %}
+  <h2>Create a new post</h2>
+
+  <form method="post" novalidate>
+    {% csrf_token %}
+
+    <!-- show non-field errors -->
+    {% if form.non_field_errors %}
+      <div class="errorlist">{{ form.non_field_errors }}</div>
+    {% endif %}
+
+    <div class="field">
+      {{ form.title.label_tag }}
+      {{ form.title }}
+      {% if form.title.errors %}
+        <div class="errorlist">{{ form.title.errors }}</div>
+      {% endif %}
+    </div>
+
+    <div class="field">
+      {{ form.content.label_tag }}
+      {{ form.content }}
+      {% if form.content.errors %}
+        <div class="errorlist">{{ form.content.errors }}</div>
+      {% endif %}
+    </div>
+
+    <!-- Author (pre-filled for logged-in users): shown read-only -->
+    <div class="field">
+      <label>Author</label>
+      {% if request.user.is_authenticated %}
+        <input type="text" value="{{ request.user.get_full_name|default:request.user.username }}" disabled>
+      {% else %}
+        <em>You must be logged in to submit a post.</em>
+      {% endif %}
+    </div>
+
+    <button type="submit" class="btn">Publish</button>
+  </form>
+{% endblock %}
