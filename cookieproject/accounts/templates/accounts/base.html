@@ -1,0 +1,27 @@
+{% load static %}
+<!doctype html>
+<html lang="{{ language }}">
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}My Site{% endblock %}</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body class="theme-{{ theme_color }}">
+  <header>
+    <nav>
+      {% if user.is_authenticated %}
+        <strong>{{ user.username }}</strong> |
+        <a href="{% url 'accounts:dashboard' %}">Dashboard</a> |
+        <a href="{% url 'accounts:logout' %}">Logout</a>
+      {% else %}
+        <a href="{% url 'accounts:login' %}">Login</a>
+      {% endif %}
+    </nav>
+  </header>
+
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+</body>
+</html>

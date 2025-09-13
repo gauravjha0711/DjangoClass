@@ -1,0 +1,22 @@
+<!-- {% extends "accounts/base.html" %}
+{% block title %}Preferences{% endblock %}
+{% block content %}
+  <h2>Preferences</h2>
+  <form method="post" action="{% url 'accounts:preferences' %}">
+    {% csrf_token %}
+    <label>Theme:
+      <select name="theme_color">
+        <option value="light" {% if theme_color == 'light' %}selected{% endif %}>Light</option>
+        <option value="dark" {% if theme_color == 'dark' %}selected{% endif %}>Dark</option>
+      </select>
+    </label>
+    <label>Language:
+      <select name="language">
+        <option value="en" {% if language == 'en' %}selected{% endif %}>English</option>
+        <option value="hi" {% if language == 'hi' %}selected{% endif %}>Hindi</option>
+      </select>
+    </label>
+    <input type="hidden" name="next" value="{% url 'accounts:dashboard' %}">
+    <button type="submit">Save preferences</button>
+  </form>
+{% endblock %} -->

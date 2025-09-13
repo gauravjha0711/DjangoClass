@@ -1,0 +1,26 @@
+{% extends "accounts/base.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+  <h2>Welcome, {{ user.username }}!</h2>
+  <p>Active theme: <strong>{{ theme }}</strong></p>
+  <p>Active language: <strong>{{ language }}</strong></p>
+
+  <h3>Quick preferences</h3>
+  <form method="post" action="{% url 'accounts:preferences' %}">
+    {% csrf_token %}
+    <label>Theme:
+      <select name="theme_color">
+        <option value="light" {% if theme == 'light' %}selected{% endif %}>Light</option>
+        <option value="dark" {% if theme == 'dark' %}selected{% endif %}>Dark</option>
+      </select>
+    </label>
+    <label>Language:
+      <select name="language">
+        <option value="en" {% if language == 'en' %}selected{% endif %}>English</option>
+        <option value="hi" {% if language == 'hi' %}selected{% endif %}>Hindi</option>
+      </select>
+    </label>
+    <input type="hidden" name="next" value="{% url 'accounts:dashboard' %}">
+    <button type="submit">Save</button>
+  </form>
+{% endblock %}
