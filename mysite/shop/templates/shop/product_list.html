@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Products</title>
+</head>
+<body>
+    <h1>Product List</h1>
+
+    {% if last_viewed_id %}
+        <p><a href="{% url 'redirect_to_last_product' %}">Go to your last viewed product</a></p>
+    {% endif %}
+
+    <ul>
+        {% for product in products %}
+            <li>
+                <a href="{% url 'product_detail' product.id %}">{{ product.name }}</a>
+            </li>
+        {% empty %}
+            <li>No products available.</li>
+        {% endfor %}
+    </ul>
+
+    <p><a href="{% url 'color_preference' %}">Set Background Color</a></p>
+</body>
+</html>
