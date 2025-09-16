@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Medical Portal</title>
+</head>
+<body>
+  <nav>
+    <a href="{% url 'home' %}">Home</a> |
+    <a href="{% url 'calculator' %}">Calculator</a>
+  </nav>
+  <hr>
+  {% block content %}{% endblock %}
+</body>
+</html>

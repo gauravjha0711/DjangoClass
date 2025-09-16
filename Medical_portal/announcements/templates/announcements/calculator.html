@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h2>Calculator</h2>
+  <form method="post">
+    {% csrf_token %}
+    <input type="text" name="a" placeholder="Enter first number">
+    <input type="text" name="b" placeholder="Enter second number"><br><br>
+    <button type="submit" name="op" value="add">Add</button>
+    <button type="submit" name="op" value="sub">Subtract</button>
+    <button type="submit" name="op" value="mul">Multiply</button>
+    <button type="submit" name="op" value="div">Divide</button>
+  </form>
+
+  {% if error %}
+    <p style="color:red">{{ error }}</p>
+  {% endif %}
+  {% if result %}
+    <p>Result: {{ result }}</p>
+  {% endif %}
+{% endblock %}
