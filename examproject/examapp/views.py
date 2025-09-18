@@ -21,3 +21,18 @@ def profile_view(request, username, age):
     else:
         message = f"Sorry {username}, you are underage."
     return render(request, 'profile.html', {'message': message})
+
+students = [
+    {'id': 1, 'name': 'Hariom', 'age': 20, 'course': 'B.Tech CSE'},
+    {'id': 2, 'name': 'Gaurav', 'age': 21, 'course': 'BCA'},
+    {'id': 3, 'name': 'Priya', 'age': 19, 'course': 'MBA'},
+    {'id': 4, 'name': 'Aman', 'age': 22, 'course': 'MCA'},
+]
+
+def students_list(request):
+    return render(request, 'students_list.html', {'students': students})
+
+def student_details(request, id):
+    # find student by id
+    student = next((s for s in students if s['id'] == id), None)
+    return render(request, 'student_details.html', {'student': student})

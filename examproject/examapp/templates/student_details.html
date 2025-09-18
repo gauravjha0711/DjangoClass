@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Details</title>
+</head>
+<body>
+    {% if student %}
+        <h2>Details of {{ student.name }}</h2>
+        <p>ID: {{ student.id }}</p>
+        <p>Name: {{ student.name }}</p>
+        <p>Age: {{ student.age }}</p>
+        <p>Course: {{ student.course }}</p>
+        <p><a href="{% url 'students_list' %}">Back to Students List</a></p>
+    {% else %}
+        <h2>Student not found!</h2>
+        <a href="{% url 'students_list' %}">Back to Students List</a>
+    {% endif %}
+</body>
+</html>
